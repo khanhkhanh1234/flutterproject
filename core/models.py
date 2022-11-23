@@ -5,18 +5,6 @@ User = get_user_model()
 
 # Create your models here.
 
-# class Admin(models.Model):
-#     id_account = models.AutoField(primary_key=True)
-#     account = models.ForeignKey(User, on_delete=models.CASCADE)
-#     account_type = models.TextField(blank=True)
-#     password = pass
-#     fk_id_staff = pass
-#
-#     # profileimg = models.ImageField(
-#     #     upload_to='profile_images', default='blank-profile-picture.png')
-#     # location = models.CharField(max_length=100, blank=True)
-#     def __str__(self):
-#         return self.account.username
 
 class Staff(models.Model):
     id_staff = models.AutoField(primary_key=True)
@@ -28,7 +16,3 @@ class Staff(models.Model):
 
     def __str__(self):
         return self.name_staff.username
-
-
-
-

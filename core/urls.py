@@ -6,4 +6,9 @@ urlpatterns = [
     path('signup', views.signup, name='signup'),
     path('signin', views.signin, name='signin'),
     path('logout', views.logout, name='logout'),
+    path('nhandienbienso', views.nhandienbienso, name='nhandienbienso'),
+    path('quanlygiangvien', views.quanlygiangvien, name='quanlygiangvien'),
+    path('quanlygiaxe', views.quanlygiaxe, name='quanlygiaxe'),
+    path('dangkyguixe', views.dangkyguixe, name='dangkyguixe'),
+    path('settings', views.settings, name='settings'),
 ]
