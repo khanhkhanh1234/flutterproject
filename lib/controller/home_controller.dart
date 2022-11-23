@@ -18,7 +18,6 @@ class HomeController extends GetxController {
   RxBool isBannerLoading = false.obs;
   RxBool isPopularCategoryLoading = false.obs;
   RxBool isPopularProductLoading = false.obs;
-
   final LocalAdBannerService _localAdBannerService = LocalAdBannerService();
   final LocalCategoryService _localCategoryService = LocalCategoryService();
   final LocalProductService _localProductService = LocalProductService();
@@ -41,9 +40,10 @@ class HomeController extends GetxController {
       if (_localAdBannerService.getAdBanners().isNotEmpty) {
         bannerList.assignAll(_localAdBannerService.getAdBanners());
       }
+      //call api
       var result = await RemoteBannerService().get();
       if (result != null) {
-        // asign api result
+        //assign api result
         bannerList.assignAll(adBannerListFromJson(result.body));
         //save api result to local db
         _localAdBannerService.assignAllBanners(
@@ -68,7 +68,6 @@ class HomeController extends GetxController {
             popularCategories: popularCategoryListFromJson(result.body));
       }
     } finally {
-      print(popularCategoryList.length);
       isPopularCategoryLoading(false);
     }
   }
@@ -86,7 +85,6 @@ class HomeController extends GetxController {
             popularProducts: popularProductListFromJson(result.body));
       }
     } finally {
-      print(popularProductList.length);
       isPopularProductLoading(false);
     }
   }
