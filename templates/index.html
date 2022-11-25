@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="IE=edge">
     <link href="{% static 'favicon.png' %}" rel="icon" type="image/png">
     <title>Smart Parking Lot</title>
     <link rel="icon" href="{% static 'images/resources/home.png' %}">
@@ -23,6 +24,7 @@
         <div class="header_inner">
             {% csrf_token %}
             <div class="left-side">
+                <!-- Logo -->
 
                 <!-- <div class="header_search"> -->
                 <a href="/" style="display:flex;"><img src="/static/images/resources/home.png" style="width:50px"
@@ -39,19 +41,20 @@
                 <div uk-dropdown="pos: bottom-left;mode:click ; animation: uk-animation-slide-bottom-small"
                     class="header_dropdown">
 
-                    <a href="quanlygiangvien"
+                    <a href="http://127.0.0.1:5500/templates/quanlykhachhang.html" target="target_form"
                         class="bg-pink-500 flex font-bold hidden hover:bg-pink-600 hover:text-white inline-block items-center lg:block max-h-10 mr-4 px-4 py-2 rounded shado text-white">
-                        Quản Lý Cán Bộ Giảng Viên
+                        Quản Lý Khách Hàng
                     </a>
                     <br>
-                    <a href="quanlygiaxe"
+                    <a href="http://127.0.0.1:5500/templates/quanlygiaxe.html" target="target_form"
                         class="bg-pink-500 flex font-bold hidden hover:bg-pink-600 hover:text-white inline-block items-center lg:block max-h-10 mr-4 px-4 py-2 rounded shado text-white">
                         Quản Lý Giá Xe
                     </a>
                 </div>
 
-                <a href="dangkyguixe"
-                    class="bg-pink-500 flex font-bold hidden hover:bg-pink-600 hover:text-white inline-block items-center lg:block max-h-10 mr-4 px-4 py-2 rounded shado text-white">
+                <a href="http://127.0.0.1:5500/templates/dangkyguixe.html"
+                    class="bg-pink-500 flex font-bold hidden hover:bg-pink-600 hover:text-white inline-block items-center lg:block max-h-10 mr-4 px-4 py-2 rounded shado text-white"
+                    target="target_form">
                     Đăng ký gửi xe
                 </a>
 
@@ -61,7 +64,7 @@
             <button type="submit"><i class="fa fa-search fa-1x"></i></button> -->
             <div class="right-side lg:pr-4">
                 <!-- upload -->
-                <a href="nhandienbienso"
+                <a href="http://127.0.0.1:5500/templates/nhandienbienso.html" target="target_form"
                     class="bg-pink-500 flex font-bold hidden hover:bg-pink-600 hover:text-white inline-block items-center lg:block max-h-10 mr-4 px-4 py-2 rounded shado text-white">
                     Nhận diện biển số xe
                 </a>
@@ -79,10 +82,20 @@
             </div>
         </div>
     </header>
+
+    {% for message in messages %}
     <script>
-        // {% for message in messages %}
         swal('{{message.tags}}', '{{message}}', '{{message.tags}}')
-        // {% endfor %}
+    </script>
+    {% endfor %}
+    <div>
+        <iframe style="width: 100%; height:100%" src="http://127.0.0.1:5500/templates/homeAnimation.html"
+            name="target_form" style="border:0;"></iframe>
+        <!-- <aside>
+            <a style="width: 100%; height:100%" href="./quanlygiaxe.html" target="target_form"></a>
+            <a style="width: 100%; height:100%" href="./dangkyguixe.html" target="target_form"></a>
+        </aside> -->
+    </div>
     </script>
     <script src="{% static 'assets/js/tippy.all.min.js' %}"></script>
     <script src="{% static 'assets/js/jquery-3.3.1.min.js' %}"></script>

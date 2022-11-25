@@ -5,7 +5,6 @@ from django.contrib.auth import login, authenticate
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import AuthenticationForm
-import sweetify
 
 from .models import *
 from .forms import RegistrationForm
@@ -60,16 +59,42 @@ def logout(request):
     return redirect('signin')
 
 
-def nhandienbienso(request):
-    return HttpResponse("Hello")
-
-
+@login_required(login_url='signin')
 def settings(request):
-    return HttpResponse("Hello")
+    # admin_profile = Admin.objects.get(user=request.user)
+
+    # if request.method == 'POST':
+
+    #     if request.FILES.get('image') == None:
+    #         image = admin_profile.profileimg
+    #         bio = request.POST['bio']
+    #         location = request.POST['location']
+
+    #         admin_profile.profileimg = image
+    #         admin_profile.bio = bio
+    #         admin_profile.location = location
+    #         admin_profile.save()
+    #     if request.FILES.get('image') != None:
+    #         image = request.FILES.get('image')
+    #         bio = request.POST['bio']
+    #         location = request.POST['location']
+
+    #         admin_profile.profileimg = image
+    #         admin_profile.bio = bio
+    #         admin_profile.location = location
+    #         admin_profile.save()
+
+    #     return redirect('settings')
+    # return render(request, 'settings.html', {'admin_profile': admin_profile})
+    return render(request, 'settings.html')
 
 
-def quanlygiangvien(request):
-    return HttpResponse("Hello")
+def nhandienbienso(request):
+    return render(request, 'nhandienbienso.html')
+
+
+def quanlykhachhang(request):
+    return render(request, 'quanlykhachhang.html')
 
 
 def quanlygiaxe(request):
@@ -77,4 +102,4 @@ def quanlygiaxe(request):
 
 
 def dangkyguixe(request):
-    return HttpResponse("Hello")
+    return render(request, 'dangkyguixe.html')
