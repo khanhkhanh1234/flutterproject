@@ -5,6 +5,7 @@ import 'package:flutter_snake_navigationbar/flutter_snake_navigationbar.dart';
 import 'package:get/get.dart';
 
 import '../../controller/dashboard_controller.dart';
+import '../account/account_screen_login.dart';
 class DashboardScreen extends StatelessWidget {
   const DashboardScreen({Key? key}) : super(key: key);
 
@@ -21,9 +22,7 @@ class DashboardScreen extends StatelessWidget {
                   Container(
                     color: Colors.blue,
                   ),
-                  Container(
-                    color: Colors.orange,
-                  ),
+                  const LoginPage(),
                 ]
             )
         ),
