@@ -18,4 +18,10 @@ class RemoteProductService {
     );
     return response;
   }
+  Future<dynamic> getByCategory({required int id}) async{
+    var response = await client.get(
+        Uri.parse('$remoteUrl?populate=images,tags&filters[category][id]=$id')
+    );
+    return response;
+  }
 }

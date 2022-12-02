@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 
 import '../../controller/dashboard_controller.dart';
 import '../account/account_screen_login.dart';
+import '../category/category_screen.dart';
 class DashboardScreen extends StatelessWidget {
   const DashboardScreen({Key? key}) : super(key: key);
 
@@ -16,13 +17,11 @@ class DashboardScreen extends StatelessWidget {
         body: SafeArea(
             child: IndexedStack(
                 index: controller.tabIndex,
-                children:[
-                  const HomeScreen(),
+                children:const [
+                 const HomeScreen(),
                   const ProductScreen(),
-                  Container(
-                    color: Colors.blue,
-                  ),
-                  const LoginPage(),
+                  const CategoryScreen(),
+                  LoginPage(),
                 ]
             )
         ),
