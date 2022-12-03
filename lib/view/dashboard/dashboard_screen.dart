@@ -5,6 +5,7 @@ import 'package:flutter_snake_navigationbar/flutter_snake_navigationbar.dart';
 import 'package:get/get.dart';
 
 import '../../controller/dashboard_controller.dart';
+import '../account/account_screen.dart';
 import '../account/account_screen_login.dart';
 import '../category/category_screen.dart';
 class DashboardScreen extends StatelessWidget {
@@ -21,6 +22,7 @@ class DashboardScreen extends StatelessWidget {
                  const HomeScreen(),
                   const ProductScreen(),
                   const CategoryScreen(),
+                  AccountScreen(),
                   LoginPage(),
                 ]
             )
