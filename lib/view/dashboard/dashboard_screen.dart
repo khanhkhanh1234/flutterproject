@@ -1,9 +1,11 @@
 import 'package:fluterproject/view/home/home_screen.dart';
+import 'package:fluterproject/view/product/product_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_snake_navigationbar/flutter_snake_navigationbar.dart';
 import 'package:get/get.dart';
 
 import '../../controller/dashboard_controller.dart';
+import '../account/account_screen_login.dart';
 class DashboardScreen extends StatelessWidget {
   const DashboardScreen({Key? key}) : super(key: key);
 
@@ -16,15 +18,11 @@ class DashboardScreen extends StatelessWidget {
                 index: controller.tabIndex,
                 children:[
                   const HomeScreen(),
-                  Container(
-                    color: Colors.red,
-                  ),
+                  const ProductScreen(),
                   Container(
                     color: Colors.blue,
                   ),
-                  Container(
-                    color: Colors.orange,
-                  ),
+                  const LoginPage(),
                 ]
             )
         ),
@@ -49,7 +47,7 @@ class DashboardScreen extends StatelessWidget {
             onTap: (val) {
             controller.updateIndex(val);
             },
-            items: [
+            items: const [
               BottomNavigationBarItem(icon: Icon(Icons.home), label: 'home'),
               BottomNavigationBarItem(icon: Icon(Icons.category), label: 'category'),
               BottomNavigationBarItem(icon: Icon(Icons.menu), label: 'menu'),
